@@ -50,6 +50,14 @@ namespace ApokPT.RocketPlugins
 
             if (!caller.IsAdmin && !caller.HasPermission("wreck")) return;
 
+            // Code to restrict wreck radius
+
+            string[] wreckLimit = command.Split(' ');
+
+            int wreckNum = Int32.Parse(wreckLimit[1]);
+
+            if (wreckNum > 50) return;
+
             UnturnedPlayer player = null;
             Vector3 position = Vector3.zero;
             if (!(caller is ConsolePlayer))
